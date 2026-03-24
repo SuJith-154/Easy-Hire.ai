@@ -1,4 +1,4 @@
-# AI Resume Ranker 🤖💼
+# EasyHire 🤖💼
 
 An intelligent, production-ready system that automates the recruitment shortlisting process. It semantically matches candidate resumes against a Job Description (JD) using **NVIDIA NIM AI** (Embeddings & Large Language Models) to rank candidates and provide explainable AI reasoning.
 
