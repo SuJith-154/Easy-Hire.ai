@@ -1,4 +1,4 @@
-# EasyHire 🤖💼
+# AI Resume Ranker 🤖💼
 
 An intelligent, production-ready system that automates the recruitment shortlisting process. It semantically matches candidate resumes against a Job Description (JD) using **NVIDIA NIM AI** (Embeddings & Large Language Models) to rank candidates and provide explainable AI reasoning.
 
@@ -18,19 +18,19 @@ An intelligent, production-ready system that automates the recruitment shortlist
 
 ```mermaid
 graph TD;
-    UI[React Frontend UI] -->|Upload JD + Resumes| API[/api/rank-resumes]
+    UI[React Frontend UI] -->|Upload JD + Resumes| API["/api/rank-resumes"]
     API --> Parse[Resume Parser Module]
     
     Parse -->|Extracts Text from PDF/DOCX| T[Cleaned Text Strings]
     
     T --> EmbedService[NVIDIA Embeddings Service]
-    EmbedService -.->|API Call| NV1[nvidia/nv-embedqa-e5-v5 API]
+    EmbedService -.->|API Call| NV1["nvidia/nv-embedqa-e5-v5 API"]
     NV1 -.->|Returns Float Vectors| EmbedService
     
     EmbedService --> Ranker[SciKit-Learn Cosine Ranking]
     Ranker -->|Top 5 Candidates| LLMService[NVIDIA LLM Service]
     
-    LLMService -.->|API Call| NV2[meta/llama-3.1-70b-instruct]
+    LLMService -.->|API Call| NV2["meta/llama-3.1-70b-instruct"]
     NV2 -.->|Returns JSON Reasoning| LLMService
     
     LLMService -->|Final Structured Output| UI
