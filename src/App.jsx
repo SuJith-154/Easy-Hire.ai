@@ -151,7 +151,7 @@ export default function App() {
         >
           {isProcessing ? (
             <>
-              <Cpu className="animate-pulse" /> Processing with NVIDIA Vector AI...
+              <Cpu className="animate-pulse" /> Processing with AI...
             </>
           ) : (
             <>
@@ -243,6 +243,13 @@ export default function App() {
           </div>
         )}
       </main>
+
+      <footer style={{ marginTop: "4rem", textAlign: "center", padding: "2rem 1rem", color: "var(--text-muted)", fontSize: "0.95rem", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+        <p>© {new Date().getFullYear()} All Rights Reserved. Built by Sujith.</p>
+        <p style={{ marginTop: "0.5rem" }}>
+          Interested in working together or hiring me? <a href="mailto:sujipjk03@gmail.com" style={{ color: "#3b82f6", textDecoration: "none", fontWeight: "600" }}>Contact me here</a>
+        </p>
+      </footer>
     </div>
   );
 }
