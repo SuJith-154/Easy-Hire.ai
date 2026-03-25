@@ -23,6 +23,14 @@ export default function App() {
   const jdInputRef = useRef(null);
   const resumesInputRef = useRef(null);
 
+  React.useEffect(() => {
+    // Ping the backend to wake it up from sleep (Render free tier)
+    const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+    axios.get(`${API_URL}/health`).catch(() => {
+      // Ignore errors, we just want to wake it up
+    });
+  }, []);
+
   const handleJdDrop = (e) => {
     e.preventDefault();
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
