@@ -52,7 +52,8 @@ export default function App() {
     resumeFiles.forEach((file) => formData.append("files", file));
 
     try {
-      const response = await axios.post("http://localhost:8000/api/rank-resumes", formData, {
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+      const response = await axios.post(`${API_URL}/api/rank-resumes`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setResults(response.data.top_candidates || []);
