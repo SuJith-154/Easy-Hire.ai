@@ -34,6 +34,10 @@ class EvalRequest(BaseModel):
 
 # --- INDIVIDUAL ISOLATED APIs ---
 
+@app.get("/health")
+async def health_check():
+    """Simple health check endpoint for cron jobs and frontend wake-up pings."""
+    return {"status": "awake"}
 @app.post("/api/extract-text")
 async def api_extract_text(file: UploadFile = File(...)):
     """1. Extract and clean text from a single PDF/DOCX file."""
